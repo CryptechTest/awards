@@ -5,7 +5,7 @@ local S = awards.gettext
 
 -- Saint-Maclou
 if minetest.get_modpath("moreblocks") then
-	awards.register_award("award_saint_maclou",{
+	awards.register_award("award_saint_maclou", {
 		title = S("Saint-Maclou"),
 		description = S("Place 20 coal checkers."),
 		icon = "awards_saint_maclou.png",
@@ -17,7 +17,7 @@ if minetest.get_modpath("moreblocks") then
 	})
 
 	-- Castorama
-	awards.register_award("award_castorama",{
+	awards.register_award("award_castorama", {
 		title = S("Castorama"),
 		description = S("Place 20 iron checkers."),
 		icon = "awards_castorama.png",
@@ -29,7 +29,7 @@ if minetest.get_modpath("moreblocks") then
 	})
 
 	-- Sam the Trapper
-	awards.register_award("award_sam_the_trapper",{
+	awards.register_award("award_sam_the_trapper", {
 		title = S("Sam the Trapper"),
 		description = S("Place 2 trap stones."),
 		icon = "awards_sam_the_trapper.png",
@@ -88,7 +88,7 @@ if minetest.get_modpath("fire") then
 		description = S("Burn to death in a fire."),
 		secret = true,
 	})
-	awards.register_on_death(function(player,data)
+	awards.register_on_death(function(player, data)
 		local pos = player:get_pos()
 		if pos and minetest.find_node_near(pos, 2, "fire:basic_flame") ~= nil then
 			return "award_burn"
@@ -114,7 +114,7 @@ awards.register_award("award_deep_down", {
 	description = S("Die below -10000"),
 	secret = true,
 })
-awards.register_on_death(function(player,data)
+awards.register_on_death(function(player, data)
 	local pos = player:get_pos()
 	if pos and pos.y < -10000 then
 		return "award_deep_down"
@@ -125,12 +125,12 @@ end)
 -- Die near diamond ore
 awards.register_award("award_no_screen", {
 	title = S("In space, no one can hear you scream"),
-	description = S("Die above 10000"),
+	description = S("Die above 4000"),
 	secret = true,
 })
-awards.register_on_death(function(player,data)
+awards.register_on_death(function(player, data)
 	local pos = player:get_pos()
-	if pos and pos.y > 10000 then
+	if pos and pos.y > 4000 then
 		return "award_no_screen"
 	end
 	return nil
@@ -138,7 +138,7 @@ end)
 
 if minetest.get_modpath("default") then
 	-- Light it up
-	awards.register_award("award_lightitup",{
+	awards.register_award("award_lightitup", {
 		title = S("Light It Up"),
 		description = S("Place 100 torches."),
 		icon = "awards_light_it_up.png^awards_level1.png",
@@ -151,7 +151,7 @@ if minetest.get_modpath("default") then
 	})
 
 	-- Light ALL the things!
-	awards.register_award("award_well_lit",{
+	awards.register_award("award_well_lit", {
 		title = S("Well Lit"),
 		icon = "awards_well_lit.png^awards_level2.png",
 		description = S("Place 1,000 torches."),
@@ -163,7 +163,7 @@ if minetest.get_modpath("default") then
 		}
 	})
 
-	awards.register_award("award_meselamp",{
+	awards.register_award("award_meselamp", {
 		title = S("Really Well Lit"),
 		description = S("Craft 10 mese lamps."),
 		icon = "awards_really_well_lit.png",
@@ -261,7 +261,7 @@ if minetest.get_modpath("default") then
 	})
 
 	-- Obsessed with Obsidian
-	awards.register_award("award_obsessed_with_obsidian",{
+	awards.register_award("award_obsessed_with_obsidian", {
 		title = S("Obsessed with Obsidian"),
 		description = S("Mine 50 obsidian."),
 		icon = "awards_obsessed_with_obsidian.png^awards_level2.png",
@@ -275,14 +275,14 @@ if minetest.get_modpath("default") then
 	})
 
 	-- Proof that player has found lava
-	awards.register_award("award_lavaminer",{
+	awards.register_award("award_lavaminer", {
 		title = S("Lava Miner"),
 		description = S("Mine any block while being very close to lava."),
 		icon = "awards_lava_miner.png",
 		hud_background = "awards_bg_mining.png",
 		difficulty = 1,
 	})
-	awards.register_on_dig(function(player,data)
+	awards.register_on_dig(function(player, data)
 		local pos = player:get_pos()
 		if pos and (minetest.find_node_near(pos, 1, "default:lava_source") or
 				minetest.find_node_near(pos, 1, "default:lava_flowing")) then
@@ -646,7 +646,7 @@ if minetest.get_modpath("default") then
 		difficulty = 0.08,
 		trigger = {
 			type = "craft",
-			item= "default:furnace",
+			item = "default:furnace",
 			target = 10
 		}
 	})
@@ -658,7 +658,7 @@ if minetest.get_modpath("default") then
 		difficulty = 0.08,
 		trigger = {
 			type = "craft",
-			item= "default:chest",
+			item = "default:chest",
 			target = 15
 		}
 	})
@@ -670,7 +670,7 @@ if minetest.get_modpath("default") then
 		difficulty = 0.08,
 		trigger = {
 			type = "craft",
-			item= "default:chest_locked",
+			item = "default:chest_locked",
 			target = 30
 		}
 	})
@@ -682,7 +682,7 @@ if minetest.get_modpath("default") then
 		difficulty = 0.03,
 		trigger = {
 			type = "craft",
-			item= "default:brick",
+			item = "default:brick",
 			target = 200
 		}
 	})
@@ -694,7 +694,7 @@ if minetest.get_modpath("default") then
 		difficulty = 0.4,
 		trigger = {
 			type = "craft",
-			item= "default:obsidianbrick",
+			item = "default:obsidianbrick",
 			target = 100
 		}
 	})
@@ -753,7 +753,7 @@ if minetest.get_modpath("default") then
 		description = S("Die in flowing lava."),
 		secret = true,
 	})
-	awards.register_on_death(function(player,data)
+	awards.register_on_death(function(player, data)
 		local pos = player:get_pos()
 		if pos and (minetest.find_node_near(pos, 2, "default:lava_flowing") ~= nil or
 				minetest.find_node_near(pos, 2, "default:lava_source") ~= nil) then
@@ -768,7 +768,7 @@ if minetest.get_modpath("default") then
 		description = S("Die near diamond ore."),
 		secret = true,
 	})
-	awards.register_on_death(function(player,data)
+	awards.register_on_death(function(player, data)
 		local pos = player:get_pos()
 		if pos and minetest.find_node_near(pos, 5, "default:stone_with_diamond") ~= nil then
 			return "award_this_is_sad"
@@ -799,7 +799,7 @@ if minetest.get_modpath("bones") then
 		description = S("Die near bones."),
 		secret = true,
 	})
-	awards.register_on_death(function(player,data)
+	awards.register_on_death(function(player, data)
 		local pos = player:get_pos()
 		if pos and minetest.find_node_near(pos, 5, "bones:bones") ~= nil then
 			return "award_the_stack"
@@ -815,7 +815,7 @@ if minetest.get_modpath("vessels") then
 		description = S("Craft 14 vessels shelves."),
 		trigger = {
 			type = "craft",
-			item= "vessels:shelf",
+			item = "vessels:shelf",
 			target = 14
 		}
 	})
@@ -875,7 +875,6 @@ if minetest.get_modpath("farming") then
 			target = 10
 		}
 	})
-
 end
 
 if minetest.get_modpath("wool") and minetest.get_modpath("farming") then
@@ -898,7 +897,7 @@ if minetest.get_modpath("beds") then
 		icon = "awards_hotelier.png",
 		trigger = {
 			type = "craft",
-			item= "beds:fancy_bed_bottom",
+			item = "beds:fancy_bed_bottom",
 			target = 15
 		}
 	})
@@ -911,7 +910,7 @@ if minetest.get_modpath("stairs") then
 		icon = "awards_filthy_rich.png",
 		trigger = {
 			type = "craft",
-			item= "stairs:stair_goldblock",
+			item = "stairs:stair_goldblock",
 			target = 24
 		}
 	})
@@ -946,7 +945,7 @@ if minetest.get_modpath("dye") then
 		icon = "awards_geraniums_are_blue.png",
 		trigger = {
 			type = "craft",
-			item= "dye:blue",
+			item = "dye:blue",
 			target = 400
 		}
 	})
@@ -957,7 +956,7 @@ if minetest.get_modpath("dye") then
 		icon = "awards_white_color_stock.png",
 		trigger = {
 			type = "craft",
-			item= "dye:white",
+			item = "dye:white",
 			target = 100
 		}
 	})
@@ -970,7 +969,7 @@ if minetest.get_modpath("flowers") then
 		icon = "awards_tasty_mushrooms.png^awards_level1.png",
 		trigger = {
 			type = "eat",
-			item= "flowers:mushroom_brown",
+			item = "flowers:mushroom_brown",
 			target = 3,
 		}
 	})
@@ -980,7 +979,7 @@ if minetest.get_modpath("flowers") then
 		icon = "awards_mushroom_lover.png^awards_level2.png",
 		trigger = {
 			type = "eat",
-			item= "flowers:mushroom_brown",
+			item = "flowers:mushroom_brown",
 			target = 33,
 		}
 	})
@@ -990,7 +989,7 @@ if minetest.get_modpath("flowers") then
 		icon = "awards_underground_mushroom_farmer.png^awards_level3.png",
 		trigger = {
 			type = "eat",
-			item= "flowers:mushroom_brown",
+			item = "flowers:mushroom_brown",
 			target = 333,
 		}
 	})
